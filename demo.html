@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    div.v-bar{
+        width: 100%;
+        height: 5px;
+        resize: vertical;
+        cursor: s-resize;
+        background-color: black;
+        float: top;
+    }
+    .h-bar{
+        width: 5px;
+        height: 100%;
+        resize: horizontal;
+        cursor: w-resize;
+        background-color: black;
+        float: left;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="jquery.divresizer.js"></script>
+</head>
+
+<body>
+<div id='main'>
+    <div id='top' style="height: 100px; width: auto; overflow: auto; float:top; position：absolute">
+        <div id="top-left" style="background-color: red; width: 200px; height: 100%; float: left;"></div>
+        <div id="top-spr" r-Type="width" div1="#top-left" div2="#top-right" class="h-bar"></div>
+        <div id="top-right" style="background-color: orange; width: 300px; height: 100%; float: left"></div>
+    </div>
+    <div id="main-spr" r-Type="height" div1="#top" div2="#bottom" class="v-bar"></div>
+    <div id='bottom' style="height: 200px; position：absolute">
+        <div id='bottom-left' style="background-color: green; width: 300px; height: 100%; float: left;"></div>
+        <div id="bottom-spr" r-Type="width" div1="#bottom-left" div2="#bottom-right" class="h-bar"></div>
+        <div id='bottom-right'style="background-color: yellow; width: 200px; height: 100%; float: left;"></div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $.divResizer({
+        select: '#top-spr',
+    });
+    $.divResizer({
+        select: '#bottom-spr',
+    });
+    $.divResizer({
+        select: '#main-spr',
+    });
+</script>
+
+</html>
